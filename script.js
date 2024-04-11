@@ -17,7 +17,7 @@ const game = () => {
         // console.log("C:" + computer + " " + "P:" + player)
         
         if(!/^[A-Za-z]+$/.test(player) || !player){
-            alert("rock, paper or scissors  Only")
+            alert("Text only, Please")
         }  
         else if(player === computer){
             console.log("You tied  "+ "C:" + computer + " " + "P:" + player)
@@ -35,6 +35,9 @@ const game = () => {
             (computer === 'scissors' && player === 'paper') 
         ) {
             console.log("You Lose  "+ "C:" + computer + " " + "P:" + player)
+        }
+        else {
+            alert("rock, paper or scissors  Only")
         }
         
     })
