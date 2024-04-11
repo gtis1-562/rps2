@@ -1,46 +1,51 @@
+const rockBtn = document.getElementById("rock-btn")
+const paperBtn = document.getElementById("paper-btn")
+const scissorsBtn = document.getElementById("scissors-btn")
+
+let choiceResult = document.getElementById("my-choice");
+let result = document.getElementById("result");
 
 
+rockBtn.addEventListener('click', () => {
+    game('rock')
+})
+paperBtn.addEventListener('click', () => {
+    game('paper')
+})
+scissorsBtn.addEventListener('click', () => {
+    game('scissors')
+})
 
 
-
-
-
-
-const game = () => {
+const game = (player) => {
     let choices = ["rock", "paper", "scissors"];
-    let click = document.getElementById("hello")
-    // let player = "";
-
-    click.addEventListener('click', (event) => {
-        let player = prompt('Rock, Paper, Scissors ???').toLowerCase();
         let computer = choices[Math.floor(Math.random() * choices.length)]
-        // console.log("C:" + computer + " " + "P:" + player)
         
-        if(!/^[A-Za-z]+$/.test(player) || !player){
-            alert("Text only, Please")
-        }  
-        else if(player === computer){
-            console.log("You tied  "+ "C:" + computer + " " + "P:" + player)
+        if(player === computer){
+            console.log("C:" + computer + " " + "P:" + player)
+            result.innerText = "Tied";
+            choiceResult.innerText = " Player:  "+ player + "  Computer: "+ computer;
         }
         else if(
             (player === 'rock' && computer === 'scissors') ||
             (player === 'paper' && computer === 'rock') ||
             (player === 'scissors' && computer === 'paper') 
         ) {
-            console.log("You Win  "+ "C:" + computer + " " + "P:" + player)
+            console.log("C:" + computer + " " + "P:" + player)
+            result.innerText = "You Win";
+            choiceResult.innerText = " Player:  "+ player + "  Computer: "+ computer;
         }
-        else if(
+        else 
+        if(
             (computer === 'rock' && player === 'scissors') ||
             (computer === 'paper' && player === 'rock') ||
             (computer === 'scissors' && player === 'paper') 
         ) {
-            console.log("You Lose  "+ "C:" + computer + " " + "P:" + player)
+            console.log("C:" + computer + " " + "P:" + player)
+            result.innerText = "You Lose";
+            choiceResult.innerText = " Player:  "+ player + "  Computer: "+ computer;
         }
-        else {
-            alert("rock, paper or scissors  Only")
-        }
-        
-    })
+       
    
 }
 
